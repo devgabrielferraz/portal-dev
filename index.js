@@ -8,7 +8,7 @@ const app = express();
 
 const Posts = require('./posts.js');
 
-mongoose.connect('process.env.DB_MONGO',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
+mongoose.connect(process.env.DB_MONGO, { useNewUrlParser: true, useUnifiedTopology: true }).then(function(){
         console.log('Conectado com sucesso!');
 }).catch(function(err){
     console.log(err.message);
@@ -120,7 +120,9 @@ app.get('/:slug', async (req, res) => {
 
 
 
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
 
-app.listen(5000,()=>{
-    console.log('server rodando!');
-})
+module.exports = app;
