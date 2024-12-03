@@ -8,7 +8,7 @@ const app = express();
 
 const Posts = require('./posts.js');
 
-mongoose.connect('CONECTE_AQUI_SEU_BANCO_DE_DADOS',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
+mongoose.connect('process.env.DB_MONGO',{useNewUrlParser: true, useUnifiedTopology: true}).then(function(){
         console.log('Conectado com sucesso!');
 }).catch(function(err){
     console.log(err.message);
